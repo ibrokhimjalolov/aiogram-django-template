@@ -3,16 +3,16 @@ from aiogram.dispatcher.filters import BoundFilter
 
 
 
-class IsChatPrivate(BoundFilter):
+class IsPrivateChat(BoundFilter):
 
-    def check(self, message: Message) -> bool:
+    async def check(self, message: Message) -> bool:
         return message.chat.type == ChatType.PRIVATE
 
 
 
-class IsChatGroup(BoundFilter):
+class IsGroupChat(BoundFilter):
 
-    def check(self, message: Message) -> bool:
+    async def check(self, message: Message) -> bool:
         return message.chat.type in [
             ChatType.GROUP,
             ChatType.SUPER_GROUP,
@@ -20,8 +20,7 @@ class IsChatGroup(BoundFilter):
 
 
 
-class IsChatChannel(BoundFilter):
+class IsChannelChat(BoundFilter):
 
-    def check(self, message: Message) -> bool:
+    async def check(self, message: Message) -> bool:
         return message.chat.type == ChatType.CHANNEL
-

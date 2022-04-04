@@ -1,10 +1,12 @@
 import logging
+from datetime import datetime
 from aiogram.utils.exceptions import (TelegramAPIError,
                                       MessageNotModified,
                                       CantParseEntities)
 
 
 from loader import dp
+from bot.utils.send_debug_message import message2devs
 
 
 @dp.errors_handler()
@@ -16,7 +18,11 @@ async def errors_handler(update, exception):
     :param exception:
     :return: stdout logging
     """
-
+    await message2devs(
+        f"<b>Error {datetime.now()}</b>\n"
+        f"<b>Update</b> {update}\n"
+        f"<b>Exception</b> {exception}"
+    )
 
     if isinstance(exception, MessageNotModified):
         logging.exception('Message is not modified')

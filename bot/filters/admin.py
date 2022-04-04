@@ -9,5 +9,3 @@ class IsAdmin(BoundFilter):
 
     def check(self, message: Message) -> bool:
         return message.from_user.id in ADMINS
-
-

@@ -2,15 +2,15 @@ from loader import dp
 
 from .admin import IsAdmin
 from .chat_type import (
-    IsChatPrivate,
-    IsChatGroup,
-    IsChatChannel
+    IsChannelChat,
+    IsGroupChat,
+    IsPrivateChat
 )
 
 
 
-if __name__ == "filters":
+if __name__ == "bot.filters":
     dp.filters_factory.bind(IsAdmin)
-    dp.filters_factory.bind(IsChatPrivate)
-    dp.filters_factory.bind(IsChatGroup)
-    dp.filters_factory.bind(IsChatChannel)
+    dp.filters_factory.bind(IsChannelChat)
+    dp.filters_factory.bind(IsGroupChat)
+    dp.filters_factory.bind(IsPrivateChat)

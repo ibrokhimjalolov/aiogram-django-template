@@ -5,6 +5,7 @@ env.read_env()
 
 BOT_TOKEN = env.str("BOT_TOKEN")
 ADMINS = env.list("ADMINS")
+DEVELOPERS = env.list("DEVELOPERS")
 IP = env.str("IP")
 
 PG_DATABASE = env.str("PG_DATABASE")
